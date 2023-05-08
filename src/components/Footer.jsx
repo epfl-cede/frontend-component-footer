@@ -51,12 +51,33 @@ class SiteFooter extends React.Component {
     const showLanguageSelector = supportedLanguages.length > 0 && onLanguageSelected;
     const { config } = this.context;
 
+    const tos_url = `${config.CATALOG_BASE_URL}/general-terms-and-conditions/`
+    const privacy_url = `${config.CATALOG_BASE_URL}/privacy-policy/`
+
     return (
       <footer
         role="contentinfo"
         className="footer d-flex border-top py-3 px-4"
       >
         <div className="container-fluid d-flex">
+          <ul className="list-unstyled">
+            <li>
+              {showLanguageSelector && (
+                  <LanguageSelector
+                    options={supportedLanguages}
+                    onSubmit={onLanguageSelected}
+                  />
+              )}
+            </li>
+            <li style={{ fontSize: "0.6875em" }} className="pt-1">
+              © {config.SITE_NAME}. All rights reserved except where noted.  edX, Open edX and their respective logos are registered trademarks of edX Inc.
+            </li>
+            <li style={{ fontSize: "0.6875em" }} className="pt-1">
+              <a className="mr-2" href={tos_url}>{intl.formatMessage(messages['footer.catalogLinks.tos'])}</a>
+              <a href={privacy_url}>{intl.formatMessage(messages['footer.catalogLinks.privacy'])}</a>
+            </li>
+          </ul>
+          <div className="flex-grow-1" />
           <a
             className="d-block"
             href={config.LMS_BASE_URL}
@@ -68,13 +89,6 @@ class SiteFooter extends React.Component {
               alt={intl.formatMessage(messages['footer.logo.altText'])}
             />
           </a>
-          <div className="flex-grow-1" />
-          {showLanguageSelector && (
-            <LanguageSelector
-              options={supportedLanguages}
-              onSubmit={onLanguageSelected}
-            />
-          )}
         </div>
       </footer>
     );
