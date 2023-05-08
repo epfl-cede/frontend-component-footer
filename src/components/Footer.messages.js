@@ -1,6 +1,16 @@
 import { defineMessages } from '@edx/frontend-platform/i18n';
 
 const messages = defineMessages({
+  'footer.catalogLinks.tos': {
+    id: 'footer.catalogLinks.tos',
+    defaultMessage: 'Terms of Service & Honor Code',
+    description: 'This is screenreader text for the Catalog Terms of Service policy.',
+  },
+  'footer.catalogLinks.privacy': {
+    id: 'footer.catalogLinks.privacy',
+    defaultMessage: 'Privacy Policy',
+    description: 'This is screenreader text for the Catalog Privacy policy URL.',
+  },
   'footer.socialLinks.srText.facebook': {
     id: 'footer.socialLinks.srText.facebook',
     defaultMessage: 'Like edX on Facebook',
