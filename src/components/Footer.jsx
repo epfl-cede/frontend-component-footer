@@ -52,11 +52,11 @@ class SiteFooter extends React.Component {
     const { config } = this.context;
 
     if (config.CATALOG_BASE_URL) {
-      const tos_url = `${config.CATALOG_BASE_URL}general-terms-and-conditions/`
-      const privacy_url = `${config.CATALOG_BASE_URL}privacy-policy/`
+      var tos_url = `${config.CATALOG_BASE_URL}general-terms-and-conditions/`
+      var privacy_url = `${config.CATALOG_BASE_URL}privacy-policy/`
     } else {
-      const tos_url = `https://swissmooc.ch/general-terms-and-conditions/`
-      const privacy_url = `https://swissmooc.ch/privacy-policy/`
+      var tos_url = `https://swissmooc.ch/general-terms-and-conditions/`
+      var privacy_url = `https://swissmooc.ch/privacy-policy/`
     }
 
     return (
