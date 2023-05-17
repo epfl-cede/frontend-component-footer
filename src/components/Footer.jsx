@@ -51,8 +51,13 @@ class SiteFooter extends React.Component {
     const showLanguageSelector = supportedLanguages.length > 0 && onLanguageSelected;
     const { config } = this.context;
 
-    const tos_url = `${config.CATALOG_BASE_URL}/general-terms-and-conditions/`
-    const privacy_url = `${config.CATALOG_BASE_URL}/privacy-policy/`
+    if (config.CATALOG_BASE_URL) {
+      const tos_url = `${config.CATALOG_BASE_URL}general-terms-and-conditions/`
+      const privacy_url = `${config.CATALOG_BASE_URL}privacy-policy/`
+    } else {
+      const tos_url = `https://swissmooc.ch/general-terms-and-conditions/`
+      const privacy_url = `https://swissmooc.ch/privacy-policy/`
+    }
 
     return (
       <footer
