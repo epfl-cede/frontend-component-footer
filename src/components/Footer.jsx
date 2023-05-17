@@ -73,8 +73,8 @@ class SiteFooter extends React.Component {
               © {config.SITE_NAME}. All rights reserved except where noted.  edX, Open edX and their respective logos are registered trademarks of edX Inc.
             </li>
             <li style={{ fontSize: "0.6875em" }} className="pt-1">
-              <a className="mr-2" href={tos_url}>{intl.formatMessage(messages['footer.catalogLinks.tos'])}</a>
-              <a href={privacy_url}>{intl.formatMessage(messages['footer.catalogLinks.privacy'])}</a>
+              <a className="text-primary-500 mr-1" href={tos_url}>{intl.formatMessage(messages['footer.catalogLinks.tos'])}</a>
+              <a className="text-primary-500 ml-1" href={privacy_url}>{intl.formatMessage(messages['footer.catalogLinks.privacy'])}</a>
             </li>
           </ul>
           <div className="flex-grow-1" />
