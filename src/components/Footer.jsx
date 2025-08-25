@@ -49,7 +49,16 @@ class SiteFooter extends React.Component {
           <div className="footer-top">
             <div className="powered-area">
               <ul className="logo-list">
-                <li>{intl.formatMessage(messages['footer.poweredby.text'])}</li>
+                <li>{intl.formatMessage(messages['footer.poweredby.text'])}:</li>
+                <li>
+                  <a href="https://openlearnity.org/" rel="noreferrer" target="_blank">
+                    <img
+                      src={`${config.LMS_BASE_URL}/theming/asset/images/openlearnity-logo.png`}
+                      alt={intl.formatMessage(messages['footer.openlearnitylogo.altText'])}
+                      width="130"
+                    />
+                  </a>
+                </li>
                 <li>
                   <a href="https://edly.io/tutor/" rel="noreferrer" target="_blank">
                     <img
