@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { sendTrackEvent } from '@edx/frontend-platform/analytics';
-import { ensureConfig } from '@edx/frontend-platform/config';
+import { ensureConfig, getConfig } from '@edx/frontend-platform';
 import { AppContext } from '@edx/frontend-platform/react';
 
 import messages from './Footer.messages';
@@ -40,8 +40,11 @@ class SiteFooter extends React.Component {
       logo,
       intl,
     } = this.props;
-    const showLanguageSelector = supportedLanguages.length > 0 && onLanguageSelected;
-    const { config } = this.context;
+    const config = getConfig();
+
+    const configLanguages = config.INDIGO_SUPPORTED_LANGUAGES;
+    const languages = configLanguages ?? supportedLanguages;
+    const showLanguageSelector = languages.length > 0 && onLanguageSelected;
 
     return (
       <div className="wrapper wrapper-footer">
@@ -83,7 +86,7 @@ class SiteFooter extends React.Component {
           <span className="copyright-site">{intl.formatMessage(messages['footer.copyright.text'])}</span>
           {showLanguageSelector && (
             <LanguageSelector
-              options={supportedLanguages}
+              options={languages}
               onSubmit={onLanguageSelected}
             />
           )}
