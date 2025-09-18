@@ -13,6 +13,8 @@ const LanguageSelector = ({
     onSubmit(languageCode);
   };
 
+  options.sort((a, b) => a.label.localeCompare(b.label));
+
   return (
     <form
       className="form-inline"
