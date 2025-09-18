@@ -7,14 +7,13 @@ const LanguageSelector = ({
 }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    const languageCode = e.target.elements['site-footer-language-select'].value;
+    const languageCode = e.target.value;
     onSubmit(languageCode);
   };
 
   return (
     <form
       className="form-inline"
-      onSubmit={handleSubmit}
       {...props}
     >
       <div className="form-group">
@@ -31,16 +30,10 @@ const LanguageSelector = ({
           className="form-control-sm mx-2"
           name="site-footer-language-select"
           defaultValue={intl.locale}
+          onChange={handleSubmit}
         >
           {options.map(({ value, label }) => <option key={value} value={value}>{label}</option>)}
         </select>
-        <button data-testid="site-footer-submit-btn" className="btn btn-outline-primary btn-sm" type="submit">
-          <FormattedMessage
-            id="footer.languageForm.submit.label"
-            defaultMessage="Apply"
-            description="The label for button to submit the language selection form."
-          />
-        </button>
       </div>
     </form>
   );
