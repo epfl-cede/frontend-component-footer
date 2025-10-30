@@ -3,3 +3,26 @@ $gray-footer: #fcfcfc !default;
 .footer {
   background-color: $gray-footer;
 }
+
+footer.tutor-container {
+  .copyright-site {
+    margin-top: 1.5em;
+  }
+  .logo-list {
+    li {
+      &:nth-child(n + 3) {
+        padding-left: 20px;
+        &:after {
+          position: absolute;
+          left: 5px;
+          top: 50%;
+          content: "";
+          width: 1px;
+          height: 29px;
+          margin: -14px 0 0;
+          background: var(--pgn-color-text-primary);
+        }
+      }
+    }
+  }
+}
