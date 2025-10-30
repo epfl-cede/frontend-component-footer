@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { injectIntl, intlShape, FormattedMessage } from '@edx/frontend-platform/i18n';
 import { Icon } from '@openedx/paragon';
 import { Language } from '@openedx/paragon/icons';
+import { getConfig } from '@edx/frontend-platform';
+import Cookies from 'universal-cookie';
 
 const LanguageSelector = ({
   intl, options, onSubmit, ...props
@@ -12,7 +14,8 @@ const LanguageSelector = ({
     const languageCode = e.target.value;
     onSubmit(languageCode);
   };
-
+  const cookies = new Cookies();
+  const cookieLanguage = cookies.get(getConfig().LANGUAGE_PREFERENCE_COOKIE_NAME);
   options.sort((a, b) => a.label.localeCompare(b.label));
 
   return (
@@ -36,7 +39,7 @@ const LanguageSelector = ({
           id="site-footer-language-select"
           className="form-control-sm mx-2"
           name="site-footer-language-select"
-          defaultValue={intl.locale}
+          defaultValue={cookieLanguage || intl.locale}
           onChange={handleSubmit}
         >
           {options.map(({ value, label }) => <option key={value} value={value}>{label}</option>)}

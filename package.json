@@ -14,6 +14,7 @@
     "start": "fedx-scripts webpack-dev-server --progress",
     "start:with-theme": "paragon install-theme && npm start && npm install",
     "test": "fedx-scripts jest --coverage",
+    "watch": "fedx-scripts babel src --out-dir dist --source-maps --ignore **/*.test.jsx,**/__mocks__,**/__snapshots__,**/setupTest.js --copy-files --watch",
     "prepare": "npm run build"
   },
   "files": [

@@ -83,13 +83,13 @@ class SiteFooter extends React.Component {
               </ul>
             </div>
           </div>
-          <span className="copyright-site">{intl.formatMessage(messages['footer.copyright.text'])}</span>
           {showLanguageSelector && (
             <LanguageSelector
               options={languages}
               onSubmit={onLanguageSelected}
             />
           )}
+          <span className="copyright-site">{intl.formatMessage(messages['footer.copyright.text'])}</span>
         </footer>
       </div>
     );
