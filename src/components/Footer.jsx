@@ -46,12 +46,11 @@ class SiteFooter extends React.Component {
     const languages = configLanguages ?? supportedLanguages;
     const showLanguageSelector = languages.length > 0 && onLanguageSelected;
     const configNavLinks = config.INDIGO_FOOTER_NAV_LINKS;
-    const navLinks = configNavLinks ?? [{"label": "English", "sort": 1, "value": "en"}, {"label": "Deutsch", "sort": 2, "value": "de-de"}, {"label": "Fran\u00e7ais", "sort": 3, "value": "fr"}, {"label": "Italiano", "sort": 4, "value": "it-it"}];
+    const navLinks = configNavLinks ?? [];
 
     return (
       <div className="wrapper wrapper-footer">
         <footer id="footer" className="tutor-container">
-          asddd
           <div className="footer-top">
             <div className="powered-area">
               <ul className="logo-list">
@@ -87,8 +86,8 @@ class SiteFooter extends React.Component {
             </div>
             <nav className="nav-colophon" aria-label="About">
               <ol>
-                {navLinks.map((link, index) => (
-                  <li key={index}>
+                {navLinks.map((link) => (
+                  <li key={link.url}>
                     <a href={link.url}>{link.title}</a>
                   </li>
                 ))}
