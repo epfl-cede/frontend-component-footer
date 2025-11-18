@@ -16,7 +16,7 @@ const LanguageSelector = ({
   };
   const cookies = new Cookies();
   const cookieLanguage = cookies.get(getConfig().LANGUAGE_PREFERENCE_COOKIE_NAME);
-  options.sort((a, b) => a.label.localeCompare(b.label));
+  options.sort((a, b) => (a.sort !== undefined ? a.sort - b.sort : a.label.localeCompare(b.label)));
 
   return (
     <form
