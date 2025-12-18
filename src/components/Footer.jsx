@@ -88,7 +88,7 @@ class SiteFooter extends React.Component {
               <ol>
                 {navLinks.map((link) => (
                   <li key={link.url}>
-                    <a href={`${config.LMS_BASE_URL}${link.url}`}>{link.title}</a>
+                    <a href={link.url}>{link.title}</a>
                   </li>
                 ))}
               </ol>
